@@ -4,7 +4,7 @@
     [String]$PerfshareKey,
 
     [Parameter(Mandatory)]
-    [bool]$IsServer
+    [String]$IsServer
 )
 
 # mount share with install and update files
@@ -30,7 +30,7 @@ if ($IsServer) {
 start-process -FilePath $install -ArgumentList "/config d:\install_newsystem\$ConfigFileName /quiet" -NoNewWindow -Wait
 
 # update newsystem
-if ($IsServer) {
+if ($IsServer -eq 'True') {
     & 'C:\Program Files\Microsoft Dynamics NAV\100\Service\NavAdminTool.ps1'
     Set-NAVServerInstance DynamicsNAV100 -Stop
 }

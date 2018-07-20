@@ -180,7 +180,7 @@
   },
   "variables": {
     "vnetId":
-      "[resourceId('perf','Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+      "[resourceId(parameters('domainPrefix'),'Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "subnetRef":
       "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
     "networkInterfaceName": 

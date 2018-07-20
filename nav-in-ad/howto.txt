@@ -1,0 +1,17 @@
+cd c:\users\tfenster\Desktop\nav-arm
+#az cloud set --name AzureGermanCloud
+#az login --username tobias.fenster@axinf.onmicrosoft.de
+
+Write-Host "`"virtualMachineSize`": {"
+Write-Host "`"type`": `"string`","
+Write-Host "`"allowedValues`": ["
+
+(az vm list-sizes --location "germanycentral" | ConvertFrom-Json) | ForEach-Object {
+    Write-Host ("`"" + $_.name + "`",")
+}
+Write-Host "],"
+
+
+#az account set -s "Performance intern CSP"
+#az group deployment validate --resource-group perf --template-file .\template.json --parameters @parameters.json
+#az group deployment create --resource-group perf --template-file .\template.json --parameters @parameters.json --name nav

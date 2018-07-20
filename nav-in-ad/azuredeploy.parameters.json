@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "nav"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D4s_v3"
+        },
+        "virtualNetworkName": {
+            "value": "adVNET"
+        },
+        "adminPassword": {
+            "value": "GEN-PASSWORD"
+        },
+        "domainPrefix": {
+            "value": "perf"
+        },
+        "domainPassword": {
+            "value": "GEN-PASSWORD"
+        }
+    }
+}

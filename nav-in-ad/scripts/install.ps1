@@ -23,7 +23,7 @@ Set-Location D:\install_newsystem\NAV*DVD
 $install = ".\setup.exe "
 $ConfigFileName = "Config_Client.xml"
 $MspFilter = "*RTC*.msp"
-if ($IsServer) {
+if ($IsServer -eq 'True') {
     $ConfigFileName = "Config_Server.xml"
     $MspFilter = "*.msp"
 }
@@ -31,7 +31,7 @@ start-process -FilePath $install -ArgumentList "/config d:\install_newsystem\$Co
 
 # update newsystem
 if ($IsServer -eq 'True') {
-    & 'C:\Program Files\Microsoft Dynamics NAV\100\Service\NavAdminTool.ps1'
+    Import-Module 'C:\Program Files\Microsoft Dynamics NAV\100\Service\Microsoft.Dynamics.Nav.Management.psm1'
     Set-NAVServerInstance DynamicsNAV100 -Stop
 }
 Get-ChildItem "D:\install_newsystem" -Filter $MspFilter | Sort-Object -Property Name | ForEach-Object {
